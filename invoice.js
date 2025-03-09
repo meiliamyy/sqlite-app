@@ -3,6 +3,8 @@ import sqlite3 from "sqlite3";
 // connect to the database here
 // data.db is the name of the database file
 
+const db = new sqlite3.Database("data.db");
+
 export default function registerInvoice(fastify, opts, done) {
   fastify.all("/", (request, reply) => {
     const id = request.query.id;
@@ -23,8 +25,8 @@ this is how the response should look (to work in the UI)
       "id":10,
       "date":"2021-02-03 00:00:00",
       "address":"3 Chatham Street",
-      "city":"Dublin","state":
-      "Dublin",
+      "city":"Dublin",
+      "state":"Dublin",
       "country":"Ireland",
       "postalCode":null,
       "total":5.94
